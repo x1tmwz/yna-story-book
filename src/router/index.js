@@ -26,4 +26,18 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('token')
+  if (to.name !== 'login' && !token) {
+    next({ name: 'login' })
+  } else {
+    const role = localStorage.getItem('role')
+    if (!to.meta || (to.meta && !to.meta.role) || (to.meta && role === to.meta.role) || role === roles.ADMIN) {
+      next()
+    } else {
+      alert('Your cant nav to this page with your role')
+      next(false)
+    }
+  }
+})
 export default router
