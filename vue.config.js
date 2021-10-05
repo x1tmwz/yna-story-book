@@ -8,5 +8,17 @@ module.exports = {
       includeLocales: false,
       enableBridge: true
     }
+  },
+  devServer: {
+    overlay: {
+      warnings: false,
+      errors: false
+    },
+    proxy: {
+      '/*': {
+        target: 'http://localhost:3000',
+        changeOrigin: true
+      }
+    }
   }
 }
