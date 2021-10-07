@@ -1,6 +1,13 @@
-.error-border{
-    border-color: rgb(179, 5, 5);
+.flex-responsive-container{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
 }
-.duplicate-border{
-    border: 2px solid rgb(7, 135, 158);
+.dash_borad_container{
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: 70% 29%;
+    grid-gap: 1%;
 }

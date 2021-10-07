@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Stories from '../views/Stories.vue'
+import Story from '../views/Story.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +11,16 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/stroies',
+    name: 'Stories',
+    component: Stories
+  },
+  {
+    path: '/story/:id',
+    name: 'Story',
+    component: Story
   }
 ]
 
@@ -18,18 +30,5 @@ const router = new VueRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('token')
-  if (to.name !== 'login' && !token) {
-    next({ name: 'login' })
-  } else {
-    const role = localStorage.getItem('role')
-    if (!to.meta || (to.meta && !to.meta.role) || (to.meta && role === to.meta.role) || role === roles.ADMIN) {
-      next()
-    } else {
-      alert('Your cant nav to this page with your role')
-      next(false)
-    }
-  }
-})
+
 export default router

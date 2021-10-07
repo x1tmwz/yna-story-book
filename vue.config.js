@@ -15,7 +15,7 @@ module.exports = {
       errors: false
     },
     proxy: {
-      '/*': {
+      '/api/*': {
         target: 'http://localhost:3000',
         changeOrigin: true
       }

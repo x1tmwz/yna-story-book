@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <MainNav />
+    <router-view />
   </div>
 </template>
+<script>
+import MainNav from "./components/navs/MainNav.vue";
+export default {
+  components: { MainNav },
+};
+</script>
 
 <style>
 #app {
